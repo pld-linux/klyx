@@ -6,7 +6,7 @@ Release:	2
 Copyright:	GPL
 Group:		X11/KDE/Applications
 Group(pl):	X11/KDE/Aplikacje
-Source:		ftp://ftp.kde.org:/pub/kde/unstable/apps/office/%{name}-%{version}.tar.gz
+Source:		ftp://ftp.kde.org/pub/kde/unstable/apps/office/%{name}-%{version}.tar.gz
 URL:		http://www.devel.lyx.org/~ettrich/klyx.html
 BuildRequires:	kdelibs-devel
 BuildRequires:	qt-devel >= 1.42
