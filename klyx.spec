@@ -5,11 +5,6 @@ Version:	0.10.0
 Release:	4
 License:	GPL
 Group:		X11/Applications
-Group(de):	X11/Applikationen
-Group(es):	X11/Aplicaciones
-Group(pl):	X11/Aplikacje
-Group(pt_BR):	X11/Aplicações
-Group(pt):	X11/Aplicações
 Source0:	ftp://ftp.kde.org/pub/kde/unstable/apps/office/%{name}-%{version}.tar.gz
 URL:		http://www.devel.lyx.org/~ettrich/klyx.html
 BuildRequires:	kdelibs-devel
