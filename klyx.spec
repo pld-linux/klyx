@@ -78,6 +78,8 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/kde/apps/klyx/pics
 %{_datadir}/kde/apps/klyx/templates
 %{_datadir}/kde/apps/klyx/tex
-%{_datadir}/kde/icons
+%{_datadir}/kde/icons/*.xpm
+%{_datadir}/kde/icons/*.gif
+%{_datadir}/kde/icons/mini/*.xpm
 
 /etc/X11/kde/applnk/Applications/klyx.kdelnk
