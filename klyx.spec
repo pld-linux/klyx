@@ -6,6 +6,7 @@ Release:	4
 License:	GPL
 Group:		X11/Applications
 Source0:	ftp://ftp.kde.org/pub/kde/unstable/apps/KDE1.x/office/%{name}-%{version}.tar.gz
+# Source0-md5:	fcd08d546d3f9520a83084874037dc76
 BuildRequires:	XFree86-devel
 BuildRequires:	kdelibs-devel
 BuildRequires:	libpng >= 1.0.8
