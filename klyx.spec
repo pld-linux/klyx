@@ -2,12 +2,15 @@ Summary:	KLyX - a document processor for the K Desktop Environment
 Summary(pl):	KLyX - procesor dokumentów dla KDE
 Name:		klyx
 Version:	0.10.0
-Release:	3
+Release:	4
 License:	GPL
-Group:		X11/KDE/Applications
-Group(de):	X11/KDE/Applikationen
-Group(pl):	X11/KDE/Aplikacje
-Source:		ftp://ftp.kde.org/pub/kde/unstable/apps/office/%{name}-%{version}.tar.gz
+Group:		X11/Applications
+Group(de):	X11/Applikationen
+Group(es):	X11/Aplicaciones
+Group(pl):	X11/Aplikacje
+Group(pt_BR):	X11/Aplicações
+Group(pt):	X11/Aplicações
+Source0:	ftp://ftp.kde.org/pub/kde/unstable/apps/office/%{name}-%{version}.tar.gz
 URL:		http://www.devel.lyx.org/~ettrich/klyx.html
 BuildRequires:	kdelibs-devel
 BuildRequires:	qt-devel >= 1.42
@@ -21,20 +24,20 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %define		_prefix		/usr/X11R6
 
 %description
-A document processor for the K Desktop Environment that is based
-on LyX and uses LaTeX as its background formatting engine.
-
-%description -l pl
-Procesor dokumentów dla KDE bazuj±cy na LyXie, a u¿ywaj±cy LaTeXa 
-w tle jako narzêdzia formatuj±cego.
-
-%description -l it
-KLyX è un word processor per il KDE basato su LyX; utilizza LaTeX
-come motore di formattazione.
+A document processor for the K Desktop Environment that is based on
+LyX and uses LaTeX as its background formatting engine.
 
 %description -l de
-Ein Dokumentenverarbeitungssystem für den KDE Desktop basierend auf LyX.
-Verwendet LaTeX als Hintergrundsatzsystem.
+Ein Dokumentenverarbeitungssystem für den KDE Desktop basierend auf
+LyX. Verwendet LaTeX als Hintergrundsatzsystem.
+
+%description -l it
+KLyX è un word processor per il KDE basato su LyX; utilizza LaTeX come
+motore di formattazione.
+
+%description -l pl
+Procesor dokumentów dla KDE bazuj±cy na LyXie, a u¿ywaj±cy LaTeXa w
+tle jako narzêdzia formatuj±cego.
 
 %prep
 %setup -q
@@ -83,4 +86,4 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/kde/icons/*.gif
 %{_datadir}/kde/icons/mini/*.xpm
 
-/etc/X11/kde/applnk/Applications/klyx.kdelnk
+%{_sysconfdir}/X11/kde/applnk/Applications/klyx.kdelnk
