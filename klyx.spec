@@ -45,7 +45,7 @@ CXXFLAGS="$RPM_OPT_FLAGS -Wall" \
 ./configure %{_target_platform} \
 	--prefix=$KDEDIR \
 	--with-install-root=$RPM_BUILD_ROOT
-make
+%{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
