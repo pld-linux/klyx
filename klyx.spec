@@ -2,9 +2,10 @@ Summary:	KLyX - a document processor for the K Desktop Environment
 Summary(pl):	KLyX - procesor dokumentów dla KDE
 Name:		klyx
 Version:	0.10.0
-Release: 3
-Copyright:	GPL
+Release:	3
+License:	GPL
 Group:		X11/KDE/Applications
+Group(de):	X11/KDE/Applikationen
 Group(pl):	X11/KDE/Aplikacje
 Source:		ftp://ftp.kde.org/pub/kde/unstable/apps/office/%{name}-%{version}.tar.gz
 URL:		http://www.devel.lyx.org/~ettrich/klyx.html
@@ -39,9 +40,9 @@ Verwendet LaTeX als Hintergrundsatzsystem.
 %setup -q
 
 %build
-export KDEDIR=%{_prefix}
-CFLAGS="$RPM_OPT_FLAGS -Wall" \
-CXXFLAGS="$RPM_OPT_FLAGS -Wall" \
+KDEDIR=%{_prefix} ; export KDEDIR
+CFLAGS="%{rpmcflags} -Wall" \
+CXXFLAGS="%{rpmcflags} -Wall" \
 ./configure %{_target_platform} \
 	--prefix=$KDEDIR \
 	--with-install-root=$RPM_BUILD_ROOT
