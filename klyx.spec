@@ -15,7 +15,6 @@ BuildRequires:	tetex-latex
 BuildRequires:	zlib-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define		_prefix		/usr/X11R6
 
 %description
 A document processor for the K Desktop Environment that is based on
