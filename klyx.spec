@@ -2,7 +2,7 @@ Summary:	KLyX - a document processor for the K Desktop Environment
 Summary(pl):	KLyX - procesor dokumentów dla KDE
 Name:		klyx
 Version:	0.10.0
-Release:	2
+Release: 3
 Copyright:	GPL
 Group:		X11/KDE/Applications
 Group(pl):	X11/KDE/Aplikacje
@@ -12,7 +12,7 @@ BuildRequires:	kdelibs-devel
 BuildRequires:	qt-devel >= 1.42
 BuildRequires:	XFree86-devel
 BuildRequires:	libstdc++-devel
-BuildRequires:	libpng-devel
+BuildRequires:	libpng >= 1.0.8
 BuildRequires:	zlib-devel
 BuildRequires:	tetex-latex
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
