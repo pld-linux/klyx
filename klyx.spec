@@ -1,21 +1,16 @@
-%define kdeprefix /usr
-%define version 0.10.0
-%define release 1
-%define qtver  qt >= 1.42
-
-%define kdename klyx
-Name: %{kdename}
-Summary: KLyX - a document processor for the K Desktop Environment
-Version: %{version}
-Release: %{release}
-Source: ftp.kde.org:/pub/kde/unstable/apps/office/%{kdename}-%{version}.tar.gz
-URL: http://www.devel.lyx.org/~ettrich/klyx.html
-Group: Applications/Publishing
-Copyright: GPL
-Buildroot: /var/tmp/%{kdename}-buildroot
-Requires: %{qtver} tetex kdesupport
-Prefix: %{kdeprefix}
-Vendor: The KLyX team (Matthias Ettrich, Kalle Dalheimer, and others)
+Summary:	KLyX - a document processor for the K Desktop Environment
+Name:		klyx
+Version:	0.10.0
+Release:	1
+Copyright:	GPL
+Group:		Applications/Publishing
+Vendor:		The KLyX team (Matthias Ettrich, Kalle Dalheimer, and others)
+Source:		ftp://ftp.kde.org:/pub/kde/unstable/apps/office/%{name}-%{version}.tar.gz
+URL:		http://www.devel.lyx.org/~ettrich/klyx.html
+BuildPrereq:	qt-devel >= 1.42
+BuildPrereq:	tetex
+BuildPrereq:	kdesupport-devel
+Buildroot:	/tmp/%{name}-%{version}-root
 
 %description
 A document processor for the K Desktop Environment that is based
@@ -30,16 +25,15 @@ Ein Dokumentenverarbeitungssystem für den KDE Desktop basierend auf LyX.
 Verwendet LaTeX als Hintergrundsatzsystem.
 
 %prep
-rm -rf $RPM_BUILD_ROOT
-
-%setup -n klyx-%{version}
+%setup -q
 
 %build
 export KDEDIR=%{kdeprefix}
 CFLAGS="$RPM_OPT_FLAGS" CXXFLAGS="$RPM_OPT_FLAGS" ./configure --prefix=%{kdeprefix} --with-install-root=$RPM_BUILD_ROOT
-make -j2 
+make
 
 %install
+rm -rf $RPM_BUILD_ROOT
 export KDEDIR=%{kdeprefix}
 make install-strip
 
@@ -56,7 +50,7 @@ find . -type l | sed 's,^\.,\%attr(-\,root\,root) ,' >> \
         $RPM_BUILD_DIR/file.list.%{kdename}
 
 %clean
-rm -rf $RPM_BUILD_ROOT $RPM_BUILD_DIR/%{name}-%{version} $RPM_BUILD_DIR/file.list.%{kdename}
+rm -rf $RPM_BUILD_ROOT
 
 %files -f ../file.list.%{kdename}
 
