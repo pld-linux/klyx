@@ -50,7 +50,7 @@ make
 %install
 rm -rf $RPM_BUILD_ROOT
 
-make install DESTIR=$RPM_BUILD_ROOT
+%{__make} install DESTIR=$RPM_BUILD_ROOT
 
 gzip -9nf ANNOUNCE* CHANGES ChangeLog* PROBLEMS README* NEWS ToDo
 
