@@ -7,9 +7,9 @@ Group:		Applications/Publishing
 Vendor:		The KLyX team (Matthias Ettrich, Kalle Dalheimer, and others)
 Source:		ftp://ftp.kde.org:/pub/kde/unstable/apps/office/%{name}-%{version}.tar.gz
 URL:		http://www.devel.lyx.org/~ettrich/klyx.html
-BuildPrereq:	qt-devel >= 1.42
-BuildPrereq:	tetex
-BuildPrereq:	kdesupport-devel
+BuildRequires:	qt-devel >= 1.42
+BuildRequires:	tetex
+BuildRequires:	kdesupport-devel
 Buildroot:	/tmp/%{name}-%{version}-root
 
 %description
