@@ -5,8 +5,7 @@ Version:	0.10.0
 Release:	4
 License:	GPL
 Group:		X11/Applications
-Source0:	ftp://ftp.kde.org/pub/kde/unstable/apps/office/%{name}-%{version}.tar.gz
-URL:		http://www.devel.lyx.org/~ettrich/klyx.html
+Source0:	ftp://ftp.kde.org/pub/kde/unstable/apps/KDE1.x/office/%{name}-%{version}.tar.gz
 BuildRequires:	XFree86-devel
 BuildRequires:	kdelibs-devel
 BuildRequires:	libpng >= 1.0.8
