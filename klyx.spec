@@ -7,13 +7,13 @@ License:	GPL
 Group:		X11/Applications
 Source0:	ftp://ftp.kde.org/pub/kde/unstable/apps/office/%{name}-%{version}.tar.gz
 URL:		http://www.devel.lyx.org/~ettrich/klyx.html
-BuildRequires:	kdelibs-devel
-BuildRequires:	qt-devel >= 1.42
 BuildRequires:	XFree86-devel
-BuildRequires:	libstdc++-devel
+BuildRequires:	kdelibs-devel
 BuildRequires:	libpng >= 1.0.8
-BuildRequires:	zlib-devel
+BuildRequires:	libstdc++-devel
+BuildRequires:	qt-devel >= 1.42
 BuildRequires:	tetex-latex
+BuildRequires:	zlib-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_prefix		/usr/X11R6
@@ -51,8 +51,6 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__make} install DESTIR=$RPM_BUILD_ROOT
 
-gzip -9nf ANNOUNCE* CHANGES ChangeLog* PROBLEMS README* NEWS ToDo
-
 %find_lang %{name}
 
 %clean
@@ -60,7 +58,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc {CHANGES,ChangeLog*,PROBLEMS,README*,ANNOUNCE*,NEWS,ToDo}.gz
+%doc ANNOUNCE* CHANGES ChangeLog* PROBLEMS README* NEWS ToDo
 %attr(755,root,root) %{_bindir}/klyx
 
 %dir %{_datadir}/kde/apps/klyx
