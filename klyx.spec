@@ -2,24 +2,30 @@ Summary:	KLyX - a document processor for the K Desktop Environment
 Summary(pl):	KLyX - procesor dokumentów dla KDE
 Name:		klyx
 Version:	0.10.0
-Release:	1
+Release:	2
 Copyright:	GPL
-Group:		Applications/Publishing
-Vendor:		The KLyX team (Matthias Ettrich, Kalle Dalheimer, and others)
+Group:		X11/KDE/Applications
+Group(pl):	X11/KDE/Aplikacje
 Source:		ftp://ftp.kde.org:/pub/kde/unstable/apps/office/%{name}-%{version}.tar.gz
 URL:		http://www.devel.lyx.org/~ettrich/klyx.html
+BuildRequires:	kdelibs-devel
 BuildRequires:	qt-devel >= 1.42
-BuildRequires:	tetex
-BuildRequires:	kdesupport-devel
+BuildRequires:	XFree86-devel
+BuildRequires:	libstdc++-devel
+BuildRequires:	libpng-devel
+BuildRequires:	zlib-devel
+BuildRequires:	tetex-latex
 Buildroot:	/tmp/%{name}-%{version}-root
+
+%define		_prefix		/usr/X11R6
 
 %description
 A document processor for the K Desktop Environment that is based
 on LyX and uses LaTeX as its background formatting engine.
 
 %description -l pl
-Procesor dokumentów dla KDE bazuj±cy LyXa, a u¿ywaj±cy LaTeXa w tle
-jako narzêdzia formatuj±cego.
+Procesor dokumentów dla KDE bazuj±cy na LyXie, a u¿ywaj±cy LaTeXa 
+w tle jako narzêdzia formatuj±cego.
 
 %description -l it
 KLyX è un word processor per il KDE basato su LyX; utilizza LaTeX
@@ -33,28 +39,45 @@ Verwendet LaTeX als Hintergrundsatzsystem.
 %setup -q
 
 %build
-export KDEDIR=%{kdeprefix}
-CFLAGS="$RPM_OPT_FLAGS" CXXFLAGS="$RPM_OPT_FLAGS" ./configure --prefix=%{kdeprefix} --with-install-root=$RPM_BUILD_ROOT
+export KDEDIR=%{_prefix}
+CFLAGS="$RPM_OPT_FLAGS -Wall" \
+CXXFLAGS="$RPM_OPT_FLAGS -Wall" \
+./configure %{_target_platform} \
+	--prefix=$KDEDIR \
+	--with-install-root=$RPM_BUILD_ROOT
 make
 
 %install
 rm -rf $RPM_BUILD_ROOT
-export KDEDIR=%{kdeprefix}
-make install-strip
 
-cd $RPM_BUILD_ROOT
-find . -type d | sed '1,2d;s,^\.,\%attr(-\,root\,root) \%dir ,' > \
-        $RPM_BUILD_DIR/file.list.%{kdename}
+make install DESTIR=$RPM_BUILD_ROOT
 
-find . -type f | sed -e 's,^\.,\%attr(-\,root\,root) ,' \
-        -e '/\/config\//s|^|%config|' \
-        -e '/\/applnk\//s|^|%config|' >> \
-        $RPM_BUILD_DIR/file.list.%{kdename}
+gzip -9nf ANNOUNCE* CHANGES ChangeLog* PROBLEMS README* NEWS ToDo
 
-find . -type l | sed 's,^\.,\%attr(-\,root\,root) ,' >> \
-        $RPM_BUILD_DIR/file.list.%{kdename}
+%find_lang %{name}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%files -f ../file.list.%{kdename}
+%files -f %{name}.lang
+%defattr(644,root,root,755)
+%doc {CHANGES,ChangeLog*,PROBLEMS,README*,ANNOUNCE*,NEWS,ToDo}.gz
+%attr(755,root,root) %{_bindir}/klyx
+
+%dir %{_datadir}/kde/apps/klyx
+%attr(755,root,root) %{_datadir}/kde/apps/klyx/configure
+%{_datadir}/kde/apps/klyx/chkconfig.ltx
+%{_datadir}/kde/apps/klyx/*.lst
+%{_datadir}/kde/apps/klyx/lyxrc*
+%{_datadir}/kde/apps/klyx/bind
+%{_datadir}/kde/apps/klyx/clipart
+%{_datadir}/kde/apps/klyx/doc
+%{_datadir}/kde/apps/klyx/examples
+%{_datadir}/kde/apps/klyx/kbd
+%{_datadir}/kde/apps/klyx/layouts
+%{_datadir}/kde/apps/klyx/pics
+%{_datadir}/kde/apps/klyx/templates
+%{_datadir}/kde/apps/klyx/tex
+%{_datadir}/kde/icons
+
+/etc/X11/kde/applnk/Applications/klyx.kdelnk
