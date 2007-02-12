@@ -1,5 +1,5 @@
 Summary:	KLyX - a document processor for the K Desktop Environment
-Summary(pl):	KLyX - procesor dokumentów dla KDE
+Summary(pl.UTF-8):   KLyX - procesor dokumentÃ³w dla KDE
 Name:		klyx
 Version:	0.10.0
 Release:	4
@@ -21,17 +21,17 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 A document processor for the K Desktop Environment that is based on
 LyX and uses LaTeX as its background formatting engine.
 
-%description -l de
-Ein Dokumentenverarbeitungssystem für den KDE Desktop basierend auf
+%description -l de.UTF-8
+Ein Dokumentenverarbeitungssystem fÃ¼r den KDE Desktop basierend auf
 LyX. Verwendet LaTeX als Hintergrundsatzsystem.
 
-%description -l it
-KLyX è un word processor per il KDE basato su LyX; utilizza LaTeX come
+%description -l it.UTF-8
+KLyX Ã¨ un word processor per il KDE basato su LyX; utilizza LaTeX come
 motore di formattazione.
 
-%description -l pl
-Procesor dokumentów dla KDE bazuj±cy na LyXie, a u¿ywaj±cy LaTeXa w
-tle jako narzêdzia formatuj±cego.
+%description -l pl.UTF-8
+Procesor dokumentÃ³w dla KDE bazujÄ…cy na LyXie, a uÅ¼ywajÄ…cy LaTeXa w
+tle jako narzÄ™dzia formatujÄ…cego.
 
 %prep
 %setup -q
