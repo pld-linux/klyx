@@ -1,5 +1,5 @@
 Summary:	KLyX - a document processor for the K Desktop Environment
-Summary(pl.UTF-8):   KLyX - procesor dokumentów dla KDE
+Summary(pl.UTF-8):	KLyX - procesor dokumentów dla KDE
 Name:		klyx
 Version:	0.10.0
 Release:	4
